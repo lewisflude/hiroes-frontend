@@ -1,6 +1,9 @@
+import React from 'react';
+
 class ProfileCard extends React.Component {
-  getInitialState() {
-    return ({
+  constructor(props){
+    super(props);
+    this.state = {
       name: "",
       description: "",
       detail: "",
@@ -9,11 +12,11 @@ class ProfileCard extends React.Component {
       subtalent: "",
       minprice: 0,
       unit: ""
-    });
+    }
   }
   componentDidMount() {
-    this.serverRequest = $.get(this.props.source, function (result) {
-      var userProfile = result[0];
+    this.serverRequest = $.getJSON(this.props.source, function (result) {
+      var userProfile = result;
       this.setState({
         name: userProfile.Name,
         description: userProfile.description,
@@ -33,7 +36,7 @@ class ProfileCard extends React.Component {
   render() {
     return (
       <div>
-      	<h1>{this.state.name}</h1>
+        <h1>{this.state.name}</h1>
         <h2>{this.state.talent}</h2>
         <p>{this.state.description}</p>
       </div>
