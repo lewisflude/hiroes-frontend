@@ -1,6 +1,6 @@
 class ProfileCard extends React.Component {
   getInitialState() {
-    return {
+    return ({
       name: "",
       description: "",
       detail: "",
@@ -9,9 +9,9 @@ class ProfileCard extends React.Component {
       subtalent: "",
       minprice: 0,
       unit: ""
-    };
-  },
-  componentDidMount: function() {
+    });
+  }
+  componentDidMount() {
     this.serverRequest = $.get(this.props.source, function (result) {
       var userProfile = result[0];
       this.setState({
@@ -26,11 +26,11 @@ class ProfileCard extends React.Component {
       });
 
     }.bind(this));
-  },
-  componentWillUnmount: function() {
+  }
+  componentWillUnmount() {
     this.serverRequest.abort();
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div>
       	<h1>{this.state.name}</h1>
@@ -41,4 +41,4 @@ class ProfileCard extends React.Component {
   }
 }
 
-export default ProfileCard
+export default ProfileCard;
