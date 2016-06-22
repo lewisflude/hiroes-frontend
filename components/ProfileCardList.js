@@ -24,7 +24,7 @@ class ProfileCardList extends React.Component {
 
     var profiles = this.state.profiles;
     return (
-      <div>
+      <div className="col-4">
       { profiles.map(function(profile, index){
         return (
           <ProfileCard 
