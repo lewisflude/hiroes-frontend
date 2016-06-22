@@ -24,7 +24,7 @@ class ProfileCardList extends React.Component {
 
     var profiles = this.state.profiles;
     return (
-      <div className="col-4">
+      <div className="col-6 col-offset-3">
       { profiles.map(function(profile, index){
         return (
           <ProfileCard 
@@ -36,6 +36,9 @@ class ProfileCardList extends React.Component {
             subtalent={profile.subtalent}
             minprice={profile.minprice}
             unit={profile.unit}
+            rating={profile.rating}
+            rating_count={profile.rating_count}
+
           />
         )
       })}
