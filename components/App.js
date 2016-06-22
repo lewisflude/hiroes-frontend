@@ -1,10 +1,12 @@
 import React from 'react';
-import ProfileCard from './ProfileCard';
+import ProfileCardList from './ProfileCardList';
+
+require("../sass/style.scss");
 
 class App extends React.Component {
   render() {
     return (
-      <ProfileCard source="https://hiroes.herokuapp.com/repo" />
+      <ProfileCardList source="https://hiroes.herokuapp.com/directory" />
     )
   }
 }

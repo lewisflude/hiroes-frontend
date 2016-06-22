@@ -11,5 +11,12 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^3.2.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
   }
 }

@@ -1,44 +1,16 @@
 import React from 'react';
 
 class ProfileCard extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      name: "",
-      description: "",
-      detail: "",
-      picture: "",
-      talent: "",
-      subtalent: "",
-      minprice: 0,
-      unit: ""
-    }
-  }
-  componentDidMount() {
-    this.serverRequest = $.getJSON(this.props.source, function (result) {
-      var userProfile = result;
-      this.setState({
-        name: userProfile.Name,
-        description: userProfile.description,
-        detail: userProfile.detail,
-        picture: userProfile.picture,
-        talent: userProfile.talent,
-        subtalent: userProfile.subtalent,
-        minprice: userProfile.minprice,
-        unit: userProfile.unit
-      });
-
-    }.bind(this));
-  }
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
   render() {
     return (
-      <div>
-        <h1>{this.state.name}</h1>
-        <h2>{this.state.talent}</h2>
-        <p>{this.state.description}</p>
+      <div className="profile-card">
+        <h1 className="profile-card__name">{this.props.name}</h1>
+        <img className="profile-card__picture" src={this.props.picture} />
+        <h2 className="profile-card__talent">{this.props.talent}</h2>
+        <h3 className="profile-card__subtalent">{this.props.subtalent}</h3>
+        <p className="profile-card__description">{this.props.description}</p>
+        <p className="profile-card__minprice">£{this.props.minprice}</p>
+        <p className="profile-card__unit">{this.props.unit}</p>
       </div>
     )
   }
