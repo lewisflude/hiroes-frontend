@@ -3,7 +3,7 @@
 }
 html, body, #app, .wrapper {
 	margin: 0;
-	height: 100%;
+	height: calc(100% - #{$header-height});
 	width: 100%;
 }
 

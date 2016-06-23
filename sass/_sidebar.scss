@@ -1,9 +1,11 @@
+
 .sidebar {
 	background: #607D8B;
-  height: 100%;
+  height: calc(100% - #{$header-height});
   width: 96px;
   position: absolute;
   left: 0;
+  top: $header-height;
 }
 
 .nav-item{
