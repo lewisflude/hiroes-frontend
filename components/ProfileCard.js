@@ -4,7 +4,18 @@ class ProfileCard extends React.Component {
   render() {
     var rating = Math.round(this.props.rating);
     var profileCardRating;
-    if (rating === 1) {
+    if (rating === 0) {
+      profileCardRating = 
+      <div>
+        <i className="material-icons md-18 md-inactive">grade</i>
+        <i className="material-icons md-18 md-inactive">grade</i>
+        <i className="material-icons md-18 md-inactive">grade</i>
+        <i className="material-icons md-18 md-inactive">grade</i>
+        <i className="material-icons md-18 md-inactive">grade</i>
+
+      </div>
+
+    } else if (rating === 1) {
       profileCardRating = 
       <div>
         <i className="material-icons md-18">grade</i>
@@ -12,7 +23,6 @@ class ProfileCard extends React.Component {
         <i className="material-icons md-18 md-inactive">grade</i>
         <i className="material-icons md-18 md-inactive">grade</i>
         <i className="material-icons md-18 md-inactive">grade</i>
-
       </div>
 
     } else if (rating === 2) {
