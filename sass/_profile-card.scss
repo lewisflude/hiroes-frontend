@@ -18,7 +18,7 @@
 	padding: 12px 24px 24px;
 }
 .profile-card__title, .profile-card__subtitle {
-	width: calc(100% - 120px;);
+	width: calc(100% - 108px;);
 	float: left;
 }
 
@@ -49,11 +49,10 @@
 	text-transform: uppercase;
 	margin-right: 6px;
 }
-
 .profile-card__picture {
 	width: 96px;
 	height: 96px;
-	margin-right: 24px;
+	margin-right: 12px;
 
 	float: left;
 
