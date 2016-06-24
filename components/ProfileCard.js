@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class ProfileCard extends React.Component {
   render() {
     var rating = Math.round(this.props.rating);
@@ -98,7 +99,7 @@ class ProfileCard extends React.Component {
          
           <div className="row">
             <div className="profile-card__actions">
-              <a className="button button--default">View Profile</a>
+              <a className="button button--default" onClick={this.alertMe}>View Profile</a>
             </div>
           </div>
         </div>

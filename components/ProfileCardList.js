@@ -5,23 +5,56 @@ class ProfileCardList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      profiles: []
+      profiles: [],
+      api:[],
+      filter: "Musician"
     }
   }
-  componentDidMount() {
-    this.serverRequest = $.getJSON(this.props.source, function (result) {
-      var filter=this.props.filter;
-      var apiData = $.map(result, function(value, index) { return [value] });
-      var filteredData = $.grep(apiData, function(e){ return e.talent == filter; });
-      this.setState({
-        profiles: filteredData
-      });
 
+  getData() {
+    this.serverRequest = $.getJSON(this.props.source, function (result) {
+    var apiData = $.map(result, function(value, index) { return [value] });
+    this.setState({
+      api: apiData
+    });
+    this.filterData();
     }.bind(this));
+    
   }
+
+  updateFilter() {
+    this.setState({filter: this.props.filter}, function () {
+      
+      this.filterData(this.state.filter);
+    
+    });
+  }
+
+  filterData(){
+    var filter=this.props.filter;
+    var filteredData= $.grep(this.state.api, function(e){ return e.talent == filter; });
+    
+    
+    this.setState({
+      profiles: filteredData,
+    });
+  }
+
+
+  componentDidMount() {
+    this.getData();
+
+  }
+
   componentWillUnmount() {
     this.serverRequest.abort();
   }
+
+  componentWillReceiveProps() {
+    this.updateFilter();
+    
+  }
+  
   render() {
     var profiles = this.state.profiles;
     return (

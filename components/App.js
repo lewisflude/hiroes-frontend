@@ -11,22 +11,28 @@ class App extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      selectedTalent: 'Musician'
+      selectedTalent: 'Photographer'
     };
   };
 
-  handleChange(navItem) {
-    this.setState({ selectedTalent: navItem.value });
+  handleChange(selectedNavItem) {
+    this.setState({selectedTalent: selectedNavItem}, function () {
+      
+
+    });
 
   }
 
+
   render() {
+
     return (
       <div className="wrapper">
         <Header />
         <Sidebar 
           handleChange={this.handleChange.bind(this)}
         />
+        
         <div className="container">
           <ProfileCardList filter={this.state.selectedTalent} source="https://hiroes.herokuapp.com/directory" />
         </div>
