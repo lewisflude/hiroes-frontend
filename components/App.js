@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      selectedTalent: 'Photographer'
+      selectedTalent: 'Musician'
     };
   };
 

@@ -9,18 +9,16 @@ class SidebarNav extends React.Component {
   render() {
     return (
       <div className="nav">
-        {this.props.sidebarNavItemList.map(function(navItem) {
-          return (
-            <SidebarNavItem
-              handleChange={this.handleChange.bind(this, navItem)}
-              title={navItem.title}
-              value={navItem.value}
-              class={navItem.class}
-              icon={navItem.icon}
-              isCurrent={(this.props.selectedNavItem === navItem.value )}
-            />
-          )
-        }.bind(this))}
+        {this.props.sidebarNavItemList.map(navItem => (
+          <SidebarNavItem
+            handleChange={this.handleChange.bind(this, navItem)}
+            title={navItem.title}
+            value={navItem.value}
+            class={navItem.class}
+            icon={navItem.icon}
+            isSelected={(this.props.selectedNavItem === navItem.value )}
+          />
+        ))}
       </div>
     )
   }

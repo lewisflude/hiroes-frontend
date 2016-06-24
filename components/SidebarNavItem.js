@@ -1,11 +1,13 @@
 import React from 'react';
 
 class SidebarNavItem extends React.Component {
+
   handleChange(e) {
     e.preventDefault();
-    this.props.handleChange();
+    console.log(this.props.title);
+
+    // this.props.handleChange();
   }
-  
   render() {
     return (
       <div className={"nav-item" + " " + this.props.class}>
