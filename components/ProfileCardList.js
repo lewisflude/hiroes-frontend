@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileCard from './ProfileCard';
 
 class ProfileCardList extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -10,9 +11,11 @@ class ProfileCardList extends React.Component {
   }
   componentDidMount() {
     this.serverRequest = $.getJSON(this.props.source, function (result) {
+      var filter=this.props.filter;
       var apiData = $.map(result, function(value, index) { return [value] });
+      var filteredData = $.grep(apiData, function(e){ return e.talent == filter; });
       this.setState({
-        profiles: apiData
+        profiles: filteredData
       });
 
     }.bind(this));
@@ -20,6 +23,7 @@ class ProfileCardList extends React.Component {
   componentWillUnmount() {
     this.serverRequest.abort();
   }
+
   render() {
 
     var profiles = this.state.profiles;

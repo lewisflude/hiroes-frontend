@@ -1,35 +1,37 @@
 import React from 'react';
+import SidebarNav from './SidebarNav';
+
+var sidebarNavItemList = [
+  { 'title': 'Photographer', 'value': 'Photographer', 'class': 'photography', 'icon': 'photo_camera' },
+  { 'title': 'Musician', 'value': 'Musician', 'class': 'music', 'icon': 'music_note' },
+  { 'title': 'Venue', 'value': 'Venue', 'class': 'venue', 'icon': 'home' },
+  { 'title': 'Food', 'value': 'Food', 'class': 'food', 'icon': 'restaurant' }
+];
 
 class Sidebar extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      sidebarNavItemList: sidebarNavItemList,
+      selectedNavItem: "Musician"
+    }
+  }
+  handleChange(navItem) {
+    this.setState({
+      selectedNavItem: navItem
+    })
+  }
   render() {
     return (
       <div className="sidebar">
-        <div className="nav">
-          <div className="nav-item photography">
-            <a className="nav-item-link">
-              <i className="material-icons md-36">photo_camera</i>
-              <div className="nav-item-label">Photography</div>
-            </a>
-          </div>
-          <div className="nav-item food">
-            <a className="nav-item-link">
-              <i className="material-icons md-36">restaurant</i>
-              <div className="nav-item-label">Food</div>
-            </a>
-          </div>
-          <div className="nav-item music">
-            <a className="nav-item-link">
-              <i className="material-icons md-36">music_note</i>
-            </a>
-            <div className="nav-item-label">Music</div>
-          </div>
-          <div className="nav-item venue">
-            <a className="nav-item-link">
-              <i className="material-icons md-36">home</i>
-            </a>
-            <div className="nav-item-label">Venue</div>
-          </div>
-        </div>
+        <SidebarNav 
+          sidebarNavItemList={this.state.sidebarNavItemList}
+          handleChange={this.handleChange}
+          selectedNavItem={this.state.selectedNavItem}
+        />
+        
+        {this.state.selectedNavItem}
+
       </div>
     )
   }
