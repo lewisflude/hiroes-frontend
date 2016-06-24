@@ -7,7 +7,6 @@ var sidebarNavItemList = [
   { 'title': 'Venue', 'value': 'Venue', 'class': 'venue', 'icon': 'home' },
   { 'title': 'Food', 'value': 'Food', 'class': 'food', 'icon': 'restaurant' }
 ];
-
 class Sidebar extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -20,18 +19,17 @@ class Sidebar extends React.Component {
     this.setState({
       selectedNavItem: navItem
     })
+    
   }
   render() {
     return (
       <div className="sidebar">
         <SidebarNav 
           sidebarNavItemList={this.state.sidebarNavItemList}
-          handleChange={this.handleChange}
+          handleChange={this.handleChange.bind(this)}
           selectedNavItem={this.state.selectedNavItem}
         />
-        
         {this.state.selectedNavItem}
-
       </div>
     )
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import ProfileCard from './ProfileCard';
 
 class ProfileCardList extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -23,15 +22,14 @@ class ProfileCardList extends React.Component {
   componentWillUnmount() {
     this.serverRequest.abort();
   }
-
   render() {
-
     var profiles = this.state.profiles;
     return (
       <div className="col-6 col-offset-3">
       { profiles.map(function(profile, index){
         return (
           <ProfileCard 
+            key={index}
             name={profile.Name}
             description={profile.description}
             detail={profile.detail}

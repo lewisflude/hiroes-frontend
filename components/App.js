@@ -17,14 +17,17 @@ class App extends React.Component {
 
   handleChange(navItem) {
     this.setState({ selectedTalent: navItem.value });
+
   }
+
   render() {
     return (
       <div className="wrapper">
         <Header />
-        <Sidebar />
+        <Sidebar 
+          handleChange={this.handleChange.bind(this)}
+        />
         <div className="container">
-
           <ProfileCardList filter={this.state.selectedTalent} source="https://hiroes.herokuapp.com/directory" />
         </div>
       </div>
