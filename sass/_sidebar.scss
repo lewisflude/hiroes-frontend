@@ -29,6 +29,13 @@
 .nav-item-label {
   display: none;
 }
+.nav-item.food {
+  background: #FF5722;
+  color: hsl(0,0,98);
+  &:hover {
+    background: darken(#FF5722,10%)
+  }
+}
 .nav-item.photography {
   background: #E91E63;
   color: hsl(0,0,98);
@@ -36,21 +43,14 @@
     background: darken(#E91E63,10%)
   }
 }
-.nav-item.music {
-  background: #FF5722;
-  color: hsl(0,0,98);
-  &:hover {
-    background: darken(#FF5722,10%)
-  }
-}
-.nav-item.food {
+.nav-item.venue {
   background: #4CAF50;
   color: hsl(0,0,98);
   &:hover {
     background: darken(#4CAF50,10%)
   }
 }
-.nav-item.venue {
+.nav-item.music {
   background: #3F51B5;
   color: hsl(0,0,98);
   &:hover {
