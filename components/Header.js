@@ -26,16 +26,17 @@ class Header extends React.Component {
           <div className="col-2">
             <img className="header__logo" src="../img/header__logo.png" />
           </div>
+          <div className="col-10">
+            <div className="header__login-container">
 
-          <div className="header__login-container">
-
-            <FacebookLogin
-            appId="1553761041593423"
-            autoLoad={true}
-            fields="name,email,picture,gender"
-            callback={responseFacebook} 
-            cssClass="button button--facebook"
-            />
+              <FacebookLogin
+              appId="1553761041593423"
+              autoLoad={true}
+              fields="name,email,picture,gender"
+              callback={responseFacebook} 
+              cssClass="button button--facebook"
+              />
+            </div>
           </div>
         </div>
       </header>
