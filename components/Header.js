@@ -3,7 +3,12 @@ import React from 'react';
 class Header extends React.Component {
   render() {
     return (
-      <header />
+      <header>
+        <div className="header__login-container">
+          <a>Log in</a>
+          <a>Sign up</a>
+        </div>
+      </header>
     )
   }
 }
