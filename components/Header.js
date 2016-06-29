@@ -23,6 +23,10 @@ class Header extends React.Component {
     return (
       <header>
         <div className="container">
+          <div className="col-2">
+            <img className="header__logo" src="../img/header__logo.png" />
+          </div>
+
           <div className="header__login-container">
 
             <FacebookLogin

@@ -2,8 +2,12 @@ header {
 	width: 100%;
 	background: $h-red;
 	height: $header-height;
-  padding: 32px;
+  padding: 12px;
   margin-bottom: $header-margin;
+}
+.header__logo {
+  height: 48px;
+  margin: 12px 0;
 }
 .header__login-container {
   float: right;
