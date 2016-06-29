@@ -29,11 +29,12 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-        <Sidebar 
-          handleChange={this.handleChange.bind(this)}
-        />
-        
         <div className="container">
+          <div className="col-2">
+            <Sidebar 
+              handleChange={this.handleChange.bind(this)}
+            />
+          </div>
           <ProfileCardList filter={this.state.selectedTalent} source="https://hiroes.herokuapp.com/directory" />
         </div>
       </div>

@@ -58,7 +58,12 @@ class ProfileCardList extends React.Component {
   render() {
     var profiles = this.state.profiles;
     return (
-      <div className="col-6 col-offset-3">
+      <div className="profile-card-list">
+      <div className="col-10">
+        <div className="topbar">
+          <h1>{this.props.filter}</h1>
+        </div>
+      </div>
       { profiles.map(function(profile, index){
         return (
           <ProfileCard 

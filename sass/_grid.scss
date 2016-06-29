@@ -1,11 +1,17 @@
 .container {
-    max-width: 1200px;
-	width: 1200px;
-    height: 100%;
+    max-width: 1400px;
+	width: 100%;
+    height: calc(100% - #{$header-height} - #{$header-margin});
 	margin: 0 auto;
 }
 
 @media (max-width: 1400px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+@media (max-width: 1200px) {
     .container {
         width: 1080px;
     }
@@ -22,6 +28,7 @@
     float: left;
     min-height: 1px; 
     width: 16.66%;
+    height: 100%;
     padding: 0 12px;
 }
 

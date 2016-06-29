@@ -16,6 +16,10 @@ class SidebarNav extends React.Component {
   render() {
     return (
       <div className="nav">
+        <div className="nav-item">
+
+          <i className="material-icons md-48">filter_list</i>
+        </div>
         {sidebarNavItemList.map((navItem, index) => (
           <SidebarNavItem
             handleChange={this.handleChange.bind(this, navItem)}

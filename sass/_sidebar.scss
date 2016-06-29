@@ -1,20 +1,30 @@
 
 .sidebar {
-	background: #607D8B;
-  height: calc(100% - #{$header-height});
-  width: 96px;
-  position: absolute;
-  left: 0;
-  top: $header-height;
+	border-right: 1px solid hsl(0,0,90);
+  border-left: 1px solid hsl(0,0,90);
+  border-top: 1px solid hsl(0,0,90);
+
+  height: 100%;
+  // position: absolute;
+  // left: 0;
+  // top: $header-height;
+
 }
 
 .nav-item{
-  width: 72px;
-  height: 72px;
-  border-radius: 36px;
-  background: hsl(0,0,98);
+  width: 100%;
+  border-bottom: 1px solid hsl(0,0,90);
   text-align: center;
-  margin: 12px 12px 24px;
+}
+
+.nav-item-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  &:hover {
+    background: hsl(0,0,95);
+  }
 }
 
 .nav-item i {
@@ -22,38 +32,68 @@
   line-height: 72px;
 }
 
-.nav-item-link {
-  cursor: pointer;
+.nav-item-icon {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  margin: 12px;
+  border-radius: 36px;
+  background: hsl(0,0,98);
+  text-align: center;
 }
 
 .nav-item-label {
   display: none;
 }
-.nav-item.food {
-  background: #FF5722;
-  color: hsl(0,0,98);
-  &:hover {
-    background: darken(#FF5722,10%)
+
+.nav-item--food {
+  &.selected {
+    background: $nav-item-color;
+    .nav-item-link:hover{
+      background: $nav-item-color;
+    }
+  }
+  .nav-item-icon {
+    background: $nav-item-color;
+    color: hsl(0,0,98);
   }
 }
-.nav-item.photography {
-  background: #E91E63;
-  color: hsl(0,0,98);
-  &:hover {
-    background: darken(#E91E63,10%)
+.nav-item--photography {
+  &.selected {
+    background: $nav-item-color;
+    .nav-item-link:hover{
+      background: $nav-item-color;
+    }
+  }
+  .nav-item-icon {
+    background: $nav-item-color;
+    color: hsl(0,0,98);
+
   }
 }
-.nav-item.venue {
-  background: #4CAF50;
-  color: hsl(0,0,98);
-  &:hover {
-    background: darken(#4CAF50,10%)
+.nav-item--venue {
+  &.selected {
+    background: $nav-item-color;
+    .nav-item-link:hover{
+      background: $nav-item-color;
+    }
+  }
+  .nav-item-icon {
+    background: $nav-item-color;
+    color: hsl(0,0,98);
+
   }
 }
-.nav-item.music {
-  background: #3F51B5;
-  color: hsl(0,0,98);
-  &:hover {
-    background: darken(#3F51B5,10%)
+.nav-item--music {
+  &.selected {
+    background: $nav-item-color;
+    .nav-item-link:hover{
+      background: $nav-item-color;
+    }
+  }
+  .nav-item-icon {
+    background: $nav-item-color;
+    color: hsl(0,0,98);
+
   }
 }
