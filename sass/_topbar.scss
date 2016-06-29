@@ -1,12 +1,12 @@
 .topbar {
   width: 100%;
   margin-bottom: 24px;
-  background: hsl(0,0,90);
+  border: 1px solid hsl(0,0,90);
   border-radius: 4px;
   height: 72px;
   padding: 0 24px;
   line-height: 72px;
 }
 .topbar__title {
-  font-size: 24px;
+  font-size: 32px;
 }
