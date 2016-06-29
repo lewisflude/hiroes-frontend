@@ -12,10 +12,9 @@
 	background: hsl(0,0,90);
 	padding: 12px 12px;
 	position: relative;
-	margin-bottom: 12px;
 }
 .profile-card__body {
-	padding: 12px 24px 24px;
+	padding: 12px 12px 24px;
 }
 .profile-card__title, .profile-card__subtitle {
 	width: calc(100% - 108px;);
@@ -63,6 +62,25 @@
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 4px;
+	margin-right: 4px;
+	display: inline;
+}
+.profile-card__location {
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+	display: inline;
+	font-size: 12px;
+	padding: 2px 8px;
+	border-radius: 12px;
+	border: 1px solid #4CAF50;
+	color: #4CAF50;
+	i {
+		font-size: inherit;
+		margin-right: 2px;	
+		vertical-align: bottom;
+		line-height: 18px;
+	}
 }
 .profile-card__rating {
 	display: inline;

@@ -73,6 +73,7 @@ class ProfileCardList extends React.Component {
             unit={profile.unit}
             rating={profile.rating}
             rating_count={profile.rating_count}
+            area={profile.area}
 
           />
         )
