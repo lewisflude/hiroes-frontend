@@ -7,7 +7,7 @@ class ProfileCardList extends React.Component {
     this.state = {
       profiles: [],
       api:[],
-      filter: "Musician"
+      filter: ""
     }
   }
 
@@ -31,9 +31,13 @@ class ProfileCardList extends React.Component {
   }
 
   filterData(){
-    var filter=this.props.filter;
-    var filteredData= $.grep(this.state.api, function(e){ return e.talent == filter; });
-    
+    var filter = this.props.filter;
+
+    if (filter == "All") {
+      var filteredData = this.state.api;
+    } else {
+      var filteredData = $.grep(this.state.api, function(e){ return e.talent == filter; });
+    }  
     
     this.setState({
       profiles: filteredData,
