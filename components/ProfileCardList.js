@@ -61,7 +61,7 @@ class ProfileCardList extends React.Component {
       <div className="profile-card-list">
       <div className="col-10">
         <div className="topbar">
-          <h1>{this.props.filter}</h1>
+          <h1 className="topbar__title">{this.props.filter}</h1>
         </div>
       </div>
       { profiles.map(function(profile, index){
