@@ -89,12 +89,13 @@ class ProfileCard extends React.Component {
 
             </div>
               <div className="profile-card__rating">
-                <div className="profile-card__rating-count">
-                  {this.props.rating_count} reviews
-                </div>
                 <div className="profile-card__rating-stars">
                   {profileCardRating}
                 </div>
+                <div className="profile-card__rating-count">
+                  {this.props.rating_count} reviews
+                </div>
+
                 
               </div>
               
