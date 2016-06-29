@@ -5,7 +5,6 @@ class Header extends React.Component {
 
   render() {
     const responseFacebook = (response) => {
-      console.log(response);
       
       $.post(
         "https://hiroes.herokuapp.com/addUser",
@@ -16,7 +15,6 @@ class Header extends React.Component {
           gender: response.gender,
           id: response.id 
         },function(result){
-          console.log(result)
       }
       );
     }
