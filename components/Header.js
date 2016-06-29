@@ -8,7 +8,7 @@ class Header extends React.Component {
       console.log(response);
       
       $.post(
-        "http://hiroes.herokuapp.com/addUser",
+        "https://hiroes.herokuapp.com/addUser",
         { 
           name: response.name, 
           email: response.email, 
