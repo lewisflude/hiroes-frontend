@@ -75,8 +75,8 @@ class ProfileCard extends React.Component {
             <div className="profile-card__title">
               <div className="profile-card__name">{this.props.name}</div>
               <div className="profile-card__location">
-                <i className="material-icons md-18">location_city</i> 
-                {this.props.area}
+                  <i className="material-icons md-18">location_city</i> 
+                  {this.props.area}
               </div>
               <div className="profile-card__tags">
                 <div className="profile-card__talent">{this.props.talent}</div>
@@ -86,14 +86,16 @@ class ProfileCard extends React.Component {
                 <span className="profile-card__minprice">£{this.props.minprice}</span>
                 <span className="profile-card__unit"> per {this.props.unit}</span>
               </div>
+
             </div>
               <div className="profile-card__rating">
-                <div className="profile-card__rating-stars">
-                  {profileCardRating}
-                </div>
                 <div className="profile-card__rating-count">
                   {this.props.rating_count} reviews
                 </div>
+                <div className="profile-card__rating-stars">
+                  {profileCardRating}
+                </div>
+                
               </div>
               
           </div>
