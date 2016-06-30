@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Router, Route, Link, browserHistory } from 'react-router'
 
 class ProfileCard extends React.Component {
   render() {
@@ -110,7 +110,7 @@ class ProfileCard extends React.Component {
           <div className="profile-card__footer">
             <div className="row">
               <div className="profile-card__actions">
-                <a className="button button--default" onClick={this.alertMe}>View Profile</a>
+                <Link to={'/profile/' + this.props.id} className="button button--default">View Profile</Link>
               </div>
             </div>
           </div>
