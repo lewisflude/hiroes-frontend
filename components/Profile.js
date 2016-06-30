@@ -1,15 +1,7 @@
 import React from 'react';
 
-class Profile extends React.Comcponent {
+class Profile extends React.Component {
 
-  findUserById(id) {
-
-  }
-  componentDidMount() {
-    this.setState({
-      user: findProfieById(this.props.params.profileId)
-    })
-  },
   render() {
     return (
       <div className="page">
