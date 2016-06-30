@@ -105,6 +105,9 @@ class ProfileCard extends React.Component {
               <p>{this.props.description}</p>
             </div>
            
+            
+          </div>
+          <div className="profile-card__footer">
             <div className="row">
               <div className="profile-card__actions">
                 <a className="button button--default" onClick={this.alertMe}>View Profile</a>

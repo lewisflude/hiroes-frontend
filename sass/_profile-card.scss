@@ -15,7 +15,12 @@
 	position: relative;
 }
 .profile-card__body {
-	padding: 12px 12px 24px;
+	padding: 24px 12px;
+}
+
+.profile-card__footer {
+	border-top: 1px solid hsla(0,0,0,.1);
+	padding: 12px;
 }
 .profile-card__title, .profile-card__subtitle {
 	width: calc(100% - 108px;);
@@ -23,7 +28,7 @@
 }
 
 .profile-card__tags {
-	margin-bottom: 16px;
+	margin-bottom: 8px;
 
 
 }
@@ -108,34 +113,33 @@
 }
 
 .profile-card__description {
-	background: hsl(0,0,98);
-	border: 1px solid hsl(0,0,90);
+	// background: hsl(0,0,98);
+	// border: 1px solid hsl(0,0,90);
+	// padding: 12px;
 	border-radius: 4px;
 	font-size: 16px;
-	padding: 12px;
-	margin-bottom: 24px;
 	p {
 		padding: 0;
 		margin: 0;
 	}
 }
 .profile-card__price {
-	display: inline;
-	width: 130px;
+	display: inline-block;
+	width: 100%;
 	background: hsl(0,0,98);
 	padding: 4px 12px;
 	border-radius: 4px;
 
-	text-align: center;
+	text-align: left;
 	color: hsl(0,0,10);
 }
 .profile-card__minprice {
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: 700;
 	display: inline;
 }
 .profile-card__unit {
-	font-size: 12px;
+	font-size: 14px;
 	display: inline;
 }
 .profile-card__actions {
