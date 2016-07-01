@@ -14,11 +14,17 @@ class Header extends React.Component {
           picture: "http://graph.facebook.com/"+response.id+"/picture?type=large", 
           gender: response.gender,
           id: response.id 
-        },function(result){
-      }
-      );
+        }, function(result){
+          console.log(response);
+          try {
+             
+          }
+          catch (e) {
+            
+             logMyErrors(e); 
+          }
+      });
     }
-
 
     return (
       <header>
