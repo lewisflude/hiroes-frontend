@@ -5,7 +5,10 @@ import { createStore } from 'redux'
 import hiroesApp from './reducers'
 import App from './containers/App';
 
-let store = createStore(hiroesApp)
+let store = createStore(hiroesApp);
+console.log(store.getState());
+store.dispatch({type: 'SET_DIRECTORY_FILTER', filter: 'MUSIC'});
+console.log(store.getState());
 
 render(
   <Provider store={store}>
@@ -13,3 +16,4 @@ render(
   </Provider>, 
   document.getElementById('app')
 )
+

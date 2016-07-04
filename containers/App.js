@@ -25,6 +25,7 @@ class App extends React.Component {
           <Route path="/profile/:profileId" component={ProfileLayout} />
         </Route>
       </Router>
+
     )
   }
 }

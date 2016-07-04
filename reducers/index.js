@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import directory from './directory'
+import directoryFilter from './directoryFilter'
 
 const hiroesApp = combineReducers({
-  directory
+  directoryFilter
 })
 
 export default hiroesApp
