@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, hashHistory } from 'react-router'
 
 import MainLayout from '../components/MainLayout';
 import DirectoryLayout from '../components/DirectoryLayout';
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={hashHistory}>
         <Route component={MainLayout}>
           <Route path="/" component={DirectoryLayout} />
           <Route path="/profile/:profileId" component={ProfileLayout} />
