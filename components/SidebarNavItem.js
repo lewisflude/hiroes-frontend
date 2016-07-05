@@ -5,6 +5,7 @@ class SidebarNavItem extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
+    // This needs to change
     store.dispatch(setDirectoryFilter(e))
   }
 
