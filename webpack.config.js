@@ -6,7 +6,8 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    port: (process.env.port || 3333)
+    port: (process.env.port || 3333),
+    historyApiFallback: true
   },
   
   module: {

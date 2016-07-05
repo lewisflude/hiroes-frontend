@@ -1,5 +1,7 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
+import { Link } from 'react-router'
+
 
 class Header extends React.Component {
 
@@ -34,7 +36,8 @@ class Header extends React.Component {
           </div>
           <div className="col-10">
             <div className="header__login-container">
-
+              <Link to={`/`}>Home</Link>
+              <Link to={`messages`}>Messages</Link>
               <FacebookLogin
               appId="1553761041593423"
               autoLoad={true}
