@@ -3,8 +3,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import hiroesAps './containers/App';
+import App from './containers/App';
 
+import hiroesApp from './reducers'
 const store = createStore(hiroesApp);
 
 console.log(store.getState());

@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { setDirectoryFilter } from '../actions/index.js'
 
 class SidebarNavItem extends React.Component {
-  
+  handleChange(navItem){
+    this.props.handleChange(navItem);
+  }
   render() {
     if (this.props.isSelected) {
       var selectedClass = " selected"
