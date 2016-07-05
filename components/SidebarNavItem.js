@@ -1,16 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { setDirectoryFilter } from '../actions/index.js'
+
 class SidebarNavItem extends React.Component {
-
-  handleChange(e) {
-    e.preventDefault();
-    // This needs to change
-    store.dispatch(setDirectoryFilter(e))
-  }
-
-
-
+  
   render() {
     if (this.props.isSelected) {
       var selectedClass = " selected"

@@ -23,6 +23,7 @@ class App extends React.Component {
         <Route component={MainLayout}>
           <Route path="/" component={DirectoryLayout} />
           <Route path="/profile/:profileId" component={ProfileLayout} />
+          <Route path="/messages/" component={ProfileLayout} />
         </Route>
       </Router>
 
