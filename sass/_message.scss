@@ -1,0 +1,18 @@
+.textInput {
+	
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow:hidden;
+    button {
+    font-size: 16px;
+    padding: 4px 12px;
+    border-radius: 14px;
+    margin-right: 12px;
+
+    &:hover {
+      
+    }
+  }
+}
