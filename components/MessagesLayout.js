@@ -29,6 +29,8 @@ var Comment = React.createClass({
   // Seconds part from the timestamp
   var seconds = "0" + date.getSeconds();
 
+
+
   // Will display time in 10:30:23 format
   var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
     //console.log(Date.now())
@@ -39,10 +41,13 @@ var Comment = React.createClass({
     if (this.props.author === this.props.facebookResponse) {
       var currentUserClass = "message--current-user"
     }
-    console.log(currentUserClass)
+    
     return (
       <div className='message'>
-        <div className='message__author'>{this.props.author}</div>
+        <div className='message__user-info'>
+          <img className='message__picture' src={this.props.picture} />
+          <div className='message__author'>{this.props.author}</div>
+        </div>
         <div className='message__text'>{this.props.text}</div>
         <div className='message__timestamp'>{String(date)}</div>   
       </div>
@@ -65,19 +70,21 @@ var CommentList = React.createClass({
       m["timestamp"]=this.props.messages[message].timestamp;
       m["text"]=this.props.messages[message].text;
       for(var user in this.props.user) {
+       
         if(this.props.user[user].id==this.props.messages[message].sender) {
-          //console.log()
+           m["picture"]=this.props.user[user].profilepicture;
           m["sender"]=this.props.user[user].Name;          
         }
         if(this.props.user[user].id==this.props.messages[message].reciever){
           m["reciever"]=this.props.user[user].Name
         }
       }
+      
       messages.push(m);
     }
 
     var commentNod = messages.map(function (comment, index) {
-      return <Comment key={index} timestamp={comment.timestamp} text={comment.text} author= {comment.sender} sender={comment.sender}>{comment.text} </Comment>;
+      return <Comment key={index} timestamp={comment.timestamp} text={comment.text} author= {comment.sender} picture={comment.picture} sender={comment.sender}>{comment.text} </Comment>;
 
     });
     return <div className='messages__list'>{commentNod}</div>;     
@@ -96,25 +103,17 @@ var CommentForm = React.createClass({
   render: function() {
     
     return (
-      <div className='textInput'>
+      <div className='messages__controls'>
         <form className='messages__form' onSubmit={this.handleSubmit}>
 
-          <input type='text' className='text'placeholder='Say something...' ref='text' />
-          <input type='submit' value='Post' className='button button--default' />
+          <input type='text' className='messages__input'placeholder='Say something...' ref='text' />
+          <input type='submit' value='Post' className='messages__submit' />
           
         </form>
       </div>
     );
   }
 });
-
-
-
-
-
-
-
-
 
 var CommentBox = React.createClass({
   mixins: [ReactFireMixin],
@@ -138,8 +137,6 @@ var CommentBox = React.createClass({
   },
 
 
-
-
   componentWillMount: function() {
     // Here we bind the component to Firebase and it handles all data updates,
     // no need to poll as in the React example.
@@ -153,7 +150,6 @@ var CommentBox = React.createClass({
     
     return (
       <div className='commentBox'>
-        <h1>Messages</h1>
         <CommentList messages={this.state.messages} user={this.state.user} sender={this.state.currentUserId} reciever={this.state.pageId}/>
 
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
@@ -177,7 +173,15 @@ class MessagesLayout extends React.Component {
     const { facebookResponse } = this.props
         return (
       <div className="page">
-        <CommentBox facebookResponse={facebookResponse} />
+
+        <div className="col-8 col-offset-2">
+          <div className="topbar">
+            <h1 className="topbar__title">Messages</h1>
+          </div>
+          <div className="messages__wrapper">
+            <CommentBox facebookResponse={facebookResponse} />
+          </div>
+        </div>
       </div>
     )
     
@@ -189,6 +193,5 @@ const mapStateToProps = (state) => {
     facebookResponse: state.facebookResponse
   }
 }
-
 
 export default connect(mapStateToProps)(MessagesLayout);
