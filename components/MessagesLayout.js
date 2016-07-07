@@ -25,10 +25,10 @@ var Comment = React.createClass({
     //<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
     //var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
-      <div className='comment'>
+      <div className='message'>
         
-        <h2 className='commentAuthor'>{this.props.author}</h2>
-        <h4 className='text'>{this.props.text}</h4>
+        <div className='message__author'>{this.props.author}</div>
+        <div className='message__text'>{this.props.text}</div>
         <h3 className='timestamp'>{this.props.timestamp}</h3>   
       </div>
     );
@@ -60,7 +60,7 @@ var CommentList = React.createClass({
       return <Comment key={index} timestamp={comment.timestamp} text={comment.text} author= {comment.sender} sender={comment.sender}>{comment.text} </Comment>;
 
     });
-    return <div className='commentList'>{commentNod}</div>;
+    return <div className='messages__list'>{commentNod}</div>;
      
   }
 });
@@ -78,7 +78,7 @@ var CommentForm = React.createClass({
     
     return (
       <div className='textInput'>
-        <form className='commentForm' onSubmit={this.handleSubmit}>
+        <form className='messages__form' onSubmit={this.handleSubmit}>
 
           <input type='text' className='text'placeholder='Say something...' ref='text' />
           <input type='submit' value='Post' className='button button--default' />
