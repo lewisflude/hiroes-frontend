@@ -1,7 +1,10 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { Link } from 'react-router'
+import { connect } from 'react-redux';
+import configureStore from '../store/configureStore'
 
+const store = configureStore();
 
 class Header extends React.Component {
 
@@ -17,7 +20,6 @@ class Header extends React.Component {
           gender: response.gender,
           id: response.id 
         }, function(result){
-          console.log(response);
           try {
              
           }
@@ -26,6 +28,10 @@ class Header extends React.Component {
              logMyErrors(e); 
           }
       });
+      this.props.dispatch({
+        type: 'GET_FACEBOOK_RESPONSE',
+        response: response
+      })
     }
 
     return (
@@ -53,4 +59,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default connect()(Header);

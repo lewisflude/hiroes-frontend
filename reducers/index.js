@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
 import directoryFilter from './directoryFilter'
+import facebookResponse from './facebookResponse'
 
 const hiroesApp = combineReducers({
-  directoryFilter
+  directoryFilter,
+  facebookResponse
 })
 
 export default hiroesApp

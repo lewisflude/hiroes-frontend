@@ -1,6 +1,10 @@
 
 import React from 'react';
 import SidebarNavItem from './SidebarNavItem';
+import { connect } from 'react-redux';
+import configureStore from '../store/configureStore'
+
+const store = configureStore();
 
 var sidebarNavItemList = [
   { 'title': 'Photographer', 'value': 'Photographer', 'class': 'photography', 'icon': 'photo_camera' },
@@ -10,9 +14,7 @@ var sidebarNavItemList = [
 ];
 
 class SidebarNav extends React.Component {
-  handleChange(navItem){
-      this.props.handleChange(navItem);
-  }
+
   render() {
     return (
       <div className="nav">
@@ -22,7 +24,6 @@ class SidebarNav extends React.Component {
         </div>
         {sidebarNavItemList.map((navItem, index) => (
           <SidebarNavItem
-            handleChange={this.handleChange.bind(this, navItem)}
             title={navItem.title}
             value={navItem.value}
             class={navItem.class}

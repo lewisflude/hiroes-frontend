@@ -10,7 +10,7 @@ class MainLayout extends React.Component {
 
     return (
       <div className="wrapper">
-        <Header />
+        <Header store={this.props.store} />
         <div className="container">
           {this.props.children}
         </div>

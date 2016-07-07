@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <Router history={hashHistory}>
-        <Route component={MainLayout}>
+        <Route component={MainLayout} store={this.props.store}>
           <Route path="/" component={DirectoryLayout} />
           <Route path="/profile/:profileId" component={ProfileLayout} />
           <Route path="messages" component={MessagesLayout} />

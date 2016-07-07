@@ -1,10 +1,19 @@
-export const setDirectoryFilter = (filter) => {
+export function setDirectoryFilter(directoryFilter) {
   return {
     type: 'SET_DIRECTORY_FILTER',
-    filter
+    directoryFilter
   }
-      console.log(filter);
 }
+
+export const getFacebookResponse = (response) => {
+  return {
+    type: 'GET_FACEBOOK_RESPONSE',
+    response
+  }
+      
+}
+
+
 
 
 

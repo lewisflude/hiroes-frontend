@@ -1,7 +1,7 @@
-const directoryFilter = (state = 'ALL', action) => {
+const directoryFilter = (state = 'All', action) => {
   switch (action.type) {
     case 'SET_DIRECTORY_FILTER':
-      return action.filter
+      return action.directoryFilter
     default:
       return state
   }
