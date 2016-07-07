@@ -9,7 +9,8 @@ const store = configureStore();
 class Header extends React.Component {
 
   render() {
-    const responseFacebook = (response) => {
+    const { facebookResponse } = this.props
+    const getFacebookResponse = (response) => {
       
       $.post(
         "https://hiroes.herokuapp.com/addUser",
@@ -34,6 +35,21 @@ class Header extends React.Component {
       })
     }
 
+    var loginButton;
+
+    console.log(this.props.facebookResponse.name)
+    if (this.props.facebookResponse.name === undefined) {
+      loginButton = <FacebookLogin
+              appId="1553761041593423"
+              autoLoad={true}
+              fields="name,email,picture,gender"
+              callback={getFacebookResponse} 
+              cssClass="button button--facebook"
+              />
+    } else {
+      loginButton = <a className="button button--default">{this.props.facebookResponse.name}</a>
+    }
+
     return (
       <header>
         <div className="container">
@@ -42,15 +58,10 @@ class Header extends React.Component {
           </div>
           <div className="col-10">
             <div className="header__login-container">
+
               <Link to={`/`}>Home</Link>
               <Link to={`messages`}>Messages</Link>
-              <FacebookLogin
-              appId="1553761041593423"
-              autoLoad={true}
-              fields="name,email,picture,gender"
-              callback={responseFacebook} 
-              cssClass="button button--facebook"
-              />
+              {loginButton}
             </div>
           </div>
         </div>
@@ -59,4 +70,10 @@ class Header extends React.Component {
   }
 }
 
-export default connect()(Header);
+const mapStateToProps = (state) => {
+  return {
+    facebookResponse: state.facebookResponse
+  }
+}
+
+export default connect(mapStateToProps)(Header);

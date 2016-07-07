@@ -31,11 +31,6 @@ class DirectoryLayout extends React.Component {
     this.serverRequest.abort();
   }
 
-  getProfiles() {
-
-  }
-
-
   filteredProfiles(directoryFilter) {
       if (directoryFilter == "All") {
         return this.state.unfilteredProfiles;
@@ -47,9 +42,6 @@ class DirectoryLayout extends React.Component {
   
   render() {
     const { directoryFilter } = this.props
-
-    console.log(this.filteredProfiles(directoryFilter));
-
     return (
 
       <div className="page">
