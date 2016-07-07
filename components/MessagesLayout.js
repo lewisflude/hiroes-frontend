@@ -48,8 +48,10 @@ var Comment = React.createClass({
           <img className='message__picture' src={this.props.picture} />
           <div className='message__author'>{this.props.author}</div>
         </div>
-        <div className='message__text'>{this.props.text}</div>
-        <div className='message__timestamp'>{String(date)}</div>   
+        <div className='message__content'>
+          <div className='message__text'>{this.props.text}</div>
+          <div className='message__timestamp'>{String(date)}</div>   
+        </div>
       </div>
     );
   }
@@ -106,7 +108,7 @@ var CommentForm = React.createClass({
       <div className='messages__controls'>
         <form className='messages__form' onSubmit={this.handleSubmit}>
 
-          <input type='text' className='messages__input'placeholder='Say something...' ref='text' />
+          <input type='text' className='messages__input' placeholder='Say something...' ref='text' autoFocus />
           <input type='submit' value='Post' className='messages__submit' />
           
         </form>
