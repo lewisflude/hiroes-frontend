@@ -11,8 +11,8 @@ class SidebarNavItem extends React.Component {
   }
   render() {
 
-
-    if (this.props.isSelected) {
+    const { directoryFilter } = this.props
+    if (this.props.value == directoryFilter) {
       var selectedClass = " selected"
     } else {
       var selectedClass = ""
@@ -28,4 +28,10 @@ class SidebarNavItem extends React.Component {
   }
 }
 
-export default connect()(SidebarNavItem);
+const mapStateToProps = (state) => {
+  return {
+    directoryFilter: state.directoryFilter
+  }
+}
+
+export default connect(mapStateToProps)(SidebarNavItem);
