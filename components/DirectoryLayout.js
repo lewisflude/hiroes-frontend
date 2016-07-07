@@ -26,11 +26,7 @@ class DirectoryLayout extends React.Component {
     )
 
   }
-
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
-
+  
   filteredProfiles(directoryFilter) {
       if (directoryFilter == "All") {
         return this.state.unfilteredProfiles;

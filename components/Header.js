@@ -37,7 +37,6 @@ class Header extends React.Component {
 
     var loginButton;
 
-    console.log(this.props.facebookResponse.name)
     if (this.props.facebookResponse.name === undefined) {
       loginButton = <FacebookLogin
               appId="1553761041593423"

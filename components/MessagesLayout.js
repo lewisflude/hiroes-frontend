@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 var ReactFireMixin = require('reactfire');
 var config = {
   apiKey: "5BTIOW6HSILLT88VLoS53BMkgIa69X1czI5xBIiO",
@@ -27,30 +29,16 @@ var Comment = React.createClass({
         
         <h2 className='commentAuthor'>{this.props.author}</h2>
         <h4 className='text'>{this.props.text}</h4>
-        <h3 className='timestamp'>{this.props.timestamp}</h3>
-
-        
-        
+        <h3 className='timestamp'>{this.props.timestamp}</h3>   
       </div>
     );
   }
 });
 
-
-
-
-
-
-
-
-
-
 var CommentList = React.createClass({
 
   render: function() {
-    
-    
-    
+      
     var messages = [];
     for(var message in this.props.messages) {
       var m ={};
@@ -76,15 +64,6 @@ var CommentList = React.createClass({
      
   }
 });
-
-
-
-
-
-
-
-
-
 
 var CommentForm = React.createClass({
   handleSubmit: function(event) {
@@ -136,7 +115,7 @@ var CommentBox = React.createClass({
       data: [],
       user: [],
       messages: [],
-      currentUserId:'10157188468930220',
+      currentUserId:String(this.props.facebookResponse.userID),
       pageId:'10157088346385597'
     };
   },
@@ -146,12 +125,10 @@ var CommentBox = React.createClass({
     // no need to poll as in the React example.
     this.bindAsArray(firebase.database().ref('user'), 'user');
     this.bindAsArray(firebase.database().ref('messages'), 'messages');
-
-
   },
 
   render: function() {
-   // console.log(this.state.user);
+    console.log(this.props.facebookResponse.userID)
     return (
       <div className='commentBox'>
         <h1>Messages</h1>
@@ -162,12 +139,6 @@ var CommentBox = React.createClass({
     );
   }
 });
-
-
-
-
-
-
 
 //Don't touch for now
 
@@ -180,22 +151,22 @@ class MessagesLayout extends React.Component {
     };
   };
 
-
-
-
   render() {
-
-    
-    
-
-    return (
+    const { facebookResponse } = this.props
+        return (
       <div className="page">
-        <CommentBox />
+        <CommentBox facebookResponse={facebookResponse} />
       </div>
     )
     
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    facebookResponse: state.facebookResponse
+  }
+}
 
-export default MessagesLayout;
+
+export default connect(mapStateToProps)(MessagesLayout);
