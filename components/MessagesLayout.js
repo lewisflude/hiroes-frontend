@@ -13,23 +13,27 @@ var firebase = require('firebase');
 var x=4;
 var app=firebase.initializeApp(config);
 
-
-
-
-
-
 var Comment = React.createClass({
   render: function() {
+  var date = new Date(this.props.timestamp*1000);
+  // Hours part from the timestamp
+  var hours = date.getHours();
+  // Minutes part from the timestamp
+  var minutes = "0" + date.getMinutes();
+  // Seconds part from the timestamp
+  var seconds = "0" + date.getSeconds();
+
+  // Will display time in 10:30:23 format
+  var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
     //console.log(Date.now())
     // <h2 className='commentAuthor'>{this.props.sender}</h2>
     //<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
     //var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
       <div className='message'>
-        
-        <div className='message__author'>{this.props.author}</div>
-        <div className='message__text'>{this.props.text}</div>
-        <h3 className='timestamp'>{this.props.timestamp}</h3>   
+        <h4 className='message__author'>{this.props.author}</h4>
+        <h2 className='message__text'>{this.props.text}</h2>
+        <div className='message__timestamp'>{String(date)}</div>   
       </div>
     );
   }
@@ -99,26 +103,26 @@ var CommentForm = React.createClass({
 
 var CommentBox = React.createClass({
   mixins: [ReactFireMixin],
-
+    getInitialState: function() {
+    return {
+      data: [],
+      user: [],
+      messages: [],
+      pageId:'10157088346385597'
+    };
+  },
   handleCommentSubmit: function(comment) {
     // Here we push the update out to Firebase and let ReactFire update this.state.data
-    console.log(this.state.user)
-    comment['sender']=this.state.currentUserId;
+    console.log(this.props)
+    console.log(this.state)
+    comment['sender']=String(this.props.facebookResponse.userID);
     comment['reciever']=this.state.pageId;
     comment['timestamp']=Date.now();
     comment['read']=0;
     this.firebaseRefs['messages'].push(comment);
   },
 
-  getInitialState: function() {
-    return {
-      data: [],
-      user: [],
-      messages: [],
-      currentUserId:String(this.props.facebookResponse.userID),
-      pageId:'10157088346385597'
-    };
-  },
+
 
   componentWillMount: function() {
     // Here we bind the component to Firebase and it handles all data updates,
@@ -128,7 +132,9 @@ var CommentBox = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.facebookResponse.userID)
+    
+    
+    
     return (
       <div className='commentBox'>
         <h1>Messages</h1>
