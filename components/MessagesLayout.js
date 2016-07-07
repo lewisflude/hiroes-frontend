@@ -21,7 +21,7 @@ var Comment = React.createClass({
     //console.log(Date.now())
     // <h2 className='commentAuthor'>{this.props.sender}</h2>
     //<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
+    //var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
       <div className='comment'>
         
@@ -59,32 +59,19 @@ var CommentList = React.createClass({
       for(var user in this.props.user) {
         if(this.props.user[user].id==this.props.messages[message].sender) {
           //console.log()
-          m["sender"]=this.props.user[user].Name;
-          
-
-
+          m["sender"]=this.props.user[user].Name;          
         }
         if(this.props.user[user].id==this.props.messages[message].reciever){
           m["reciever"]=this.props.user[user].Name
         }
       }
       messages.push(m);
-
     }
-    var commentNodes = this.props.messages.map(function (comment, index) {
-      //console.log(comment);
-      return <Comment key={index} author={comment.author}>{comment.text}</Comment>;
-    });
-    console.log(commentNodes)
 
     var commentNod = messages.map(function (comment, index) {
       return <Comment key={index} timestamp={comment.timestamp} text={comment.text} author= {comment.sender} sender={comment.sender}>{comment.text} </Comment>;
 
     });
-    console.log("nof")
-    console.log(commentNod)
-    
-    //return <div className='commentList'>{commentNodes}</div>;
     return <div className='commentList'>{commentNod}</div>;
      
   }
@@ -102,10 +89,8 @@ var CommentList = React.createClass({
 var CommentForm = React.createClass({
   handleSubmit: function(event) {
     event.preventDefault();
-    var author = this.refs.author.value.trim();
     var text = this.refs.text.value.trim();
-    this.props.onCommentSubmit({author: author, text: text});
-    this.refs.author.value = '';
+    this.props.onCommentSubmit({text: text});
     this.refs.text.value = '';
   },
 
@@ -115,9 +100,8 @@ var CommentForm = React.createClass({
     return (
       <div className='textInput'>
         <form className='commentForm' onSubmit={this.handleSubmit}>
-          <input type='text' placeholder='Your name' ref='author' />
 
-          <input type='text' placeholder='Say something...' ref='text' />
+          <input type='text' className='text'placeholder='Say something...' ref='text' />
           <input type='submit' value='Post' className='button button--default' />
           
         </form>
@@ -144,7 +128,6 @@ var CommentBox = React.createClass({
     comment['reciever']=this.state.pageId;
     comment['timestamp']=Date.now();
     comment['read']=0;
-    this.firebaseRefs['data'].push(comment);
     this.firebaseRefs['messages'].push(comment);
   },
 
@@ -161,7 +144,6 @@ var CommentBox = React.createClass({
   componentWillMount: function() {
     // Here we bind the component to Firebase and it handles all data updates,
     // no need to poll as in the React example.
-    this.bindAsArray(firebase.database().ref('commentsBox'), 'data');
     this.bindAsArray(firebase.database().ref('user'), 'user');
     this.bindAsArray(firebase.database().ref('messages'), 'messages');
 
