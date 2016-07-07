@@ -14,6 +14,12 @@ var x=4;
 var app=firebase.initializeApp(config);
 
 var Comment = React.createClass({
+
+  componentDidMount: function() {
+        $(".messages__list").scrollTop($(".messages__list")[0].scrollHeight);
+
+  },
+
   render: function() {
   var date = new Date(this.props.timestamp*1000);
   // Hours part from the timestamp
@@ -29,19 +35,29 @@ var Comment = React.createClass({
     // <h2 className='commentAuthor'>{this.props.sender}</h2>
     //<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
     //var rawMarkup = converter.makeHtml(this.props.children.toString());
+
+    if (this.props.author === this.props.facebookResponse) {
+      var currentUserClass = "message--current-user"
+    }
+    console.log(currentUserClass)
     return (
       <div className='message'>
-        <h4 className='message__author'>{this.props.author}</h4>
-        <h2 className='message__text'>{this.props.text}</h2>
+        <div className='message__author'>{this.props.author}</div>
+        <div className='message__text'>{this.props.text}</div>
         <div className='message__timestamp'>{String(date)}</div>   
       </div>
     );
   }
 });
 
+export default connect(mapStateToProps)(Comment);
+
+
 var CommentList = React.createClass({
 
-  render: function() {
+    render: function() {
+
+
       
     var messages = [];
     for(var message in this.props.messages) {
@@ -64,8 +80,7 @@ var CommentList = React.createClass({
       return <Comment key={index} timestamp={comment.timestamp} text={comment.text} author= {comment.sender} sender={comment.sender}>{comment.text} </Comment>;
 
     });
-    return <div className='messages__list'>{commentNod}</div>;
-     
+    return <div className='messages__list'>{commentNod}</div>;     
   }
 });
 
@@ -121,6 +136,7 @@ var CommentBox = React.createClass({
     comment['read']=0;
     this.firebaseRefs['messages'].push(comment);
   },
+
 
 
 
