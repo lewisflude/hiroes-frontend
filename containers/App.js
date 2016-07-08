@@ -3,7 +3,7 @@ import { Router, Route, Link, hashHistory } from 'react-router'
 
 import MainLayout from '../components/MainLayout';
 import DirectoryLayout from '../components/DirectoryLayout';
-import ProfileLayout from '../components/ProfileLayout';
+import Profile from '../components/Profile';
 import MessagesLayout from '../components/MessagesLayout';
 
 require("../sass/style.scss");
@@ -23,7 +23,7 @@ class App extends React.Component {
       <Router history={hashHistory}>
         <Route component={MainLayout} store={this.props.store}>
           <Route path="/" component={DirectoryLayout} />
-          <Route path="/profile/:profileId" component={ProfileLayout} />
+          <Route path="/profile/:profileId" component={Profile} />
           <Route path="messages" component={MessagesLayout} />
         </Route>
       </Router>

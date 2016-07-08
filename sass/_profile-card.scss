@@ -23,7 +23,7 @@
 	padding: 12px;
 }
 .profile-card__title, .profile-card__subtitle {
-	width: calc(100% - 108px;);
+	width: calc(100% - 132px;);
 	float: left;
 }
 
@@ -36,28 +36,23 @@
 .profile-card__talent {
 	display: inline;
 	font-size: 12px;
-	background: #2196F3;
-	border: 1px solid hsla(0,0,0,.1);
-	border-radius: 4px;
+	border: 1px solid $h-blue;
 	padding: 2px 8px;
-	color: hsl(0,0,98);
-	text-transform: uppercase;
+	border-radius: 4px;
 	margin-right: 4px;
 }
 .profile-card__subtalent {
 	display: inline;
 	font-size: 12px;
-	background: hsl(0,0,95);
 	border: 1px solid hsla(0,0,0,.1);
 	border-radius: 4px;
 	padding: 2px 8px;
 	color: hsl(0,0,10);
-	text-transform: uppercase;
 	margin-right: 6px;
 }
 .profile-card__picture {
-	width: 96px;
-	height: 96px;
+	width: 120px;
+	height: 120px;
 	margin-right: 12px;
 
 	float: left;
@@ -70,21 +65,26 @@
 	line-height: 18px;
 	vertical-align: top;
 	font-weight: 700;
-	margin-bottom: 12px;
 	margin-right: 8px;
 	display: inline-block;
+	margin-bottom: 36px;
 }
 .profile-card__location {
 	line-height: 18px;
 	vertical-align: top;
-	display: inline-block;
+	color: $h-green;;
+	margin-bottom: 24px;
 	font-size: 12px;
-	color: #4CAF50;
+	border: 1px solid $h-green;
+	display: inline-block;
+	border-radius: 4px;
+	padding: 0 8px;
+
 	i {
 		font-size: inherit;
 		margin-right: 2px;	
 		vertical-align: bottom;
-		line-height: 18px;
+		line-height: inherit;
 	}
 }
 .profile-card__rating {

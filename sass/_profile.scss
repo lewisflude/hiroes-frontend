@@ -1,0 +1,70 @@
+.profile__header {
+  padding-bottom: 24px;
+  border-bottom: 1px solid hsla(0,0,0,.1);
+  overflow: hidden;
+}
+.profile__picture {
+  width: 144px;
+  height: 144px;
+  border-radius: 144px;
+  margin-right: 24px;
+  float: left;
+}
+
+.profile__name, .profile__area {
+  display: inline;
+}
+
+.profile__name-group {
+  margin-bottom: 12px;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 48px;
+  margin-right: 24px;
+}
+
+.profile__area {
+  vertical-align: top;
+  display: inline-block;
+  color: #4CAF50;
+  i {
+    font-size: inherit;
+    line-height: inherit;
+    margin-right: 6px;  
+    vertical-align: bottom;
+  }
+}
+
+.profile__talent-group {
+  font-size: 24px;
+}
+
+.profile__talent {
+  border: 1px solid $h-blue;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-right: 12px;
+}
+
+.profile__subtalent {
+  border: 1px solid hsla(0,0,0,.1);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: hsl(0,0,10);
+}
+
+.profile__description {
+  border-radius: 4px;
+  margin: 0 0 24px;
+  padding: 24px;
+  min-height: 240px;
+}
+
+.profile__detail {
+  border-left: 1px solid hsl(0,0,90);
+  margin: 0 0 24px;
+  padding: 24px;
+  min-height: 240px;
+}
