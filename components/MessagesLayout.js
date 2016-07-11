@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ConversationList from './ConversationList';
+import axios from 'axios';
 
 var ReactFireMixin = require('reactfire');
 var config = {
@@ -124,13 +126,12 @@ var CommentBox = React.createClass({
       data: [],
       user: [],
       messages: [],
-      pageId:'10157088346385597'
+      pageId:'10153697613315382'
     };
   },
   handleCommentSubmit: function(comment) {
     // Here we push the update out to Firebase and let ReactFire update this.state.data
-    console.log(this.props)
-    console.log(this.state)
+ 
     comment['sender']=String(this.props.facebookResponse.userID);
     comment['reciever']=this.state.pageId;
     comment['timestamp']=Date.now();
@@ -160,23 +161,17 @@ var CommentBox = React.createClass({
   }
 });
 
-//Don't touch for now
-
 class MessagesLayout extends React.Component {
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      selectedTalent: 'All'
-    };
-  };
 
   render() {
     const { facebookResponse } = this.props
-        return (
+    return (
       <div className="page">
 
-        <div className="col-8 col-offset-2">
+        <div className="col-4">
+          <ConversationList facebookResponse={facebookResponse} />
+        </div>
+        <div className="col-8 ">
           <div className="topbar">
             <h1 className="topbar__title">Messages</h1>
           </div>

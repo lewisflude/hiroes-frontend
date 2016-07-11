@@ -26,7 +26,6 @@ class Profile extends React.Component {
 
   render() {
       const profile = this.state.profile;
-      console.log(profile);
       return (
       <div className="page">
         <div className="row">
@@ -39,6 +38,7 @@ class Profile extends React.Component {
                   <i className="material-icons md-18">location_city</i> 
                   {profile.area}
                 </h2>
+                <p>{profile.bio}</p>
               </div>
               <div className="profile__talent-group">
                 <span className="profile__talent">{profile.talent}</span>
